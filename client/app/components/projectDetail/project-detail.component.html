@@ -1,0 +1,92 @@
+<div *ngIf="project" class="form-horizontal">
+    <div class="page-header" style="text-align: center;">
+        <h2>{{project.name}} Detail</h2>
+    </div>
+    <div class="form-group">
+        <div *ngIf="!newproject">
+            <label class="col-sm-1 control-label">id: </label>
+            <div class="col-sm-7">
+                <span>{{project._id}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Name: </label>
+        <div class="col-sm-7">
+            <input class="form-control" [(ngModel)]="project.name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Priority: </label>
+        <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="project.priority">
+              <option value="Very High">Very High</option>
+              <option value="High">High</option>
+              <option value="Standard">Standard</option>
+              <option value="Low">Low</option>
+              <option value="F-it">F'it</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Category: </label>
+        <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="project.category">
+                <option value="Desktop App">Desktop App</option>
+                <option value="Web App">Web App</option>
+                <option value="Game">Game</option>
+                <option value="API">API</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Stage: </label>
+        <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="project.stage">
+                <option value="Pre-Development">Pre-Development</option>
+                <option value="Development">Development</option>
+                <option value="Production">Production</option>
+                <option value="Post-Production">Post-Production</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Phase: </label>
+        <div class="col-sm-7">
+            <select class="form-control" [(ngModel)]="project.phase">
+                <option value="Planning">Planning</option>
+                <option value="Requirements">Requirements</option>
+                <option value="Design">Design</option>
+                <option value="Coding">Coding</option>
+                <option value="Debugging">Debugging</option>
+                <option value="QA">QA</option>
+                <option value="Deployment">Deployment</option>
+                <option value="Post-mortom">Post-mortom</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Start Date: </label>
+        <div class="col-sm-7">
+            <input class="form-control" [(ngModel)]="project.startDate" type="date" placeholder="mm/dd/yyyy" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Finish Date: </label>
+        <div class="col-sm-7">
+            <input class="form-control" [(ngModel)]="project.finishDate" type="date" placeholder="mm/dd/yyyy" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Notes: </label>
+        <div class="col-sm-7">
+            <textarea class="form-control" [(ngModel)]="project.notes" rows="5" style="resize: none;"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+            <button (click)="goBack()" class="btn btn-default">Back</button>
+            <button (click)="save()" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>

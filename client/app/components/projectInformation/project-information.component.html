@@ -1,0 +1,130 @@
+<div class="page-header" style="text-align: center;">
+    <button data-toggle="collapse" data-target="#form" class="btn">Form</button>
+    <button data-toggle="collapse" data-target="#table" class="btn">Table</button>
+</div>
+<div *ngIf="project" class="form-horizontal collapse" id="form">
+    <h2>{{project.name}} Information</h2>
+    <div class="form-group">
+        <div *ngIf="!newproject">
+            <label class="col-sm-2 control-label">id: </label>
+            <div class="col-sm-10">
+                <span>{{project._id}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Name: </label>
+        <div class="col-sm-10">
+            <input class="form-control" [(ngModel)]="project.name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Priority: </label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="project.priority">
+              <option value="Very High">Very High</option>
+              <option value="High">High</option>
+              <option value="Standard">Standard</option>
+              <option value="Low">Low</option>
+              <option value="F-it">F'it</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Category: </label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="project.category">
+                <option value="Desktop App">Desktop App</option>
+                <option value="Web App">Web App</option>
+                <option value="Game">Game</option>
+                <option value="API">API</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Stage: </label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="project.stage">
+                <option value="Pre-Development">Pre-Development</option>
+                <option value="Development">Development</option>
+                <option value="Production">Production</option>
+                <option value="Post-Production">Post-Production</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Phase: </label>
+        <div class="col-sm-10">
+            <select class="form-control" [(ngModel)]="project.phase">
+                <option value="Planning">Planning</option>
+                <option value="Requirements">Requirements</option>
+                <option value="Design">Design</option>
+                <option value="Coding">Coding</option>
+                <option value="Debugging">Debugging</option>
+                <option value="QA">QA</option>
+                <option value="Deployment">Deployment</option>
+                <option value="Post-mortom">Post-mortom</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Start Date: </label>
+        <div class="col-sm-10">
+            <input class="form-control" [(ngModel)]="project.startDate" type="date" placeholder="mm/dd/yyyy" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Finish Date: </label>
+        <div class="col-sm-10">
+            <input class="form-control" [(ngModel)]="project.finishDate" type="date" placeholder="mm/dd/yyyy" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Notes: </label>
+        <div class="col-sm-10">
+            <textarea class="form-control" [(ngModel)]="project.notes" rows="5" style="resize: none;"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button (click)="goBack()" class="btn btn-default">Back</button>
+            <button (click)="save()" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>
+<div *ngIf="project" class="collapse" id="table">
+    <div class="page-header" style="text-align: center;">
+        <h1>{{project.name}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error" *ngIf="error">{{error}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <button type="button" class="list-group-item" data-toggle="collapse" data-target="#objList">
+                  <span class="badge">Object Id</span>{{project._id}}</button>
+            <div class="list-group" id="objList">
+                <button type="button" class="list-group-item"><span class="badge">Object Id</span>{{project._id}}</button>
+            </div>
+            <button type="button" class="list-group-item" data-toggle="collapse" data-target="#nameList">
+              <span class="badge">Name</span>{{project.name}}</button>
+            <div class="list-group" id="nameList">
+                <button type="button" class="list-group-item"><span class="badge">Name</span>{{project.name}}</button>
+            </div>
+            <button type="button" class="list-group-item" data-toggle="collapse" data-target="#catList">
+              <span class="badge">Category</span>{{project.category}}</button>
+            <div class="list-group" id="catList">
+                <button type="button" class="list-group-item"><span class="badge">Name</span>{{project.category}}</button>
+            </div>
+            <button type="button" class="list-group-item" data-toggle="collapse" data-target="#stageList">
+              <span class="badge">Stage</span>{{project.stage}}</button>
+            <div class="list-group" id="stageList">
+                <button type="button" class="list-group-item"><span class="badge">Name</span>{{project.stage}}</button>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

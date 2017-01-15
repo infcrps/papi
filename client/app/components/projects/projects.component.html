@@ -1,0 +1,43 @@
+<h2>My Projects</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="error" *ngIf="error">{{error}}</div>
+        <div class="pull-right">
+            <button class="btn btn-success" (click)="addProject()">Add New Project</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Object Id</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Stage</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects" [class.active]="project === selectedProject" (click)="onSelect(project)">
+                    <td>{{project._id}}</td>
+                    <td>{{project.name}}</td>
+                    <td>{{project.category}}</td>
+                    <td>{{project.stage}}</td>
+                    <td><button class="btn btn-danger" (click)="deleteProject(project, $event)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div *ngIf="selectedProject">
+            <h2>
+                {{selectedProject.name}}
+            </h2>
+            <button class="btn btn-primary" (click)="gotoDetail()">View Details</button>
+        </div>
+    </div>
+</div>

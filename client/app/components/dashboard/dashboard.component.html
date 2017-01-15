@@ -1,0 +1,8 @@
+<h3>Project Board</h3>
+<div class="row">
+    <div *ngFor="let project of projects" (click)="gotoDetail(project)" class="col-md-3">
+        <div class="module project">
+            <h4>{{project.name}}</h4>
+        </div>
+    </div>
+</div>
